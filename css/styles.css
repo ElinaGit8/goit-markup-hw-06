@@ -10,7 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--white);
   margin: 0;
-
   color: var(--text-color);
   font-weight: 400;
   font-size: 14px;
@@ -774,7 +773,12 @@ max-width: 270px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }  
+.modal-close:hover {
+fill: var(--blue);
+}
 
 /* subscribe-form */
 
@@ -890,6 +894,14 @@ fill: var(--white);
   padding-bottom: 4px;
 }
 .input-type {
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 1.16;
+letter-spacing: 0.01em;
+color: var(--grey);
+
   outline: none;
   height: 40px;
   padding-left: 42px;
@@ -938,6 +950,20 @@ fill: var(--white);
 .user-comment:focus {
   border-color: var(--blue)
 }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    rgba(117, 117, 117, 0.5);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    rgba(117, 117, 117, 0.5);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    rgba(117, 117, 117, 0.5);
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    rgba(117, 117, 117, 0.5);
+}
+
 .user-form-button {
   display: flex;
   width: 200px;
@@ -960,90 +986,42 @@ fill: var(--white);
   line-height: 1.87;
   letter-spacing: 0.06em;
   color: var(--white);
+  margin-top: 30px;
 }  
-
-.license {
-  display: flex;
+.check-label {
+  display:flex;
+  justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  margin-bottom: 32px;
-  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.71;
   letter-spacing: 0.03em;
 }
-
-.license-title::before {
-    content: "";
-    display: block;
-    align-items: center;
-    text-align: center;
-    width: 16px;
-    height: 15px;
-    top: 0;
-    left: 0;
-    border: 1px solid var(--black); 
-    border-radius: 2px;
-    margin-right: 8px;
-    transition-property: border-color;
-    transition-duration: 250ms;
-    transition-timing-function: var(--timing-function);
-}
-
-
-.license-title:hover::before,
-.license-title:focus::before {
-  border-color: var(--blue);
-}
-
-.checkbox-item {
-  width: 16px;
+.icon-check {
+  width: 15px;
   height: 15px;
-  display: flex;
-  position: absolute;
-  display: block;
-  align-items: center;
-  text-align: center;
- 
-  transition-property: opacity;
-  transition-duration: var(--time-animation);
-  transition-timing-function: var(--cubik-transform);
-  pointer-events: none;
-  
-  
-}
-.checkbox-item:checked {
-  opacity: 1;
-  }
-
-.license-title {
+  border: 2px solid var(--black);
+  border-radius: 2px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
-  margin-right: 4px;
-  cursor: pointer;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
+  fill: var(--white);
 }
-
-.checkbox-svg {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 4px;
-  width: 16px;
-  height: 15px;
-  }
-
-.none{
-  opacity: 0;
-  width: 0;
-  height: 0;
-  font-size: 0;
+.checkbox:checked + .check-label > .icon-check {
+  background-color: var(--blue);
+  border: none;
 }
-
 .license-link {
+  display: inline;
   text-decoration: underline;
   color: var(--blue);
-}
+  margin-left: 5px;
+} 
+
